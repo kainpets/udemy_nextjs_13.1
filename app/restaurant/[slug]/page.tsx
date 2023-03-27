@@ -24,7 +24,8 @@ export default function RestaurantDetails() {
         <Description />
         <Images />
         <Reviews />
-      </div>
+        {/* REVIEWS */}
+        </div>
       <div className="w-[27%] relative text-reg">
         <ReservationCard />
       </div>
