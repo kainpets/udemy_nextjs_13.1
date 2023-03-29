@@ -32,7 +32,7 @@ const fetchRestaurantBySlug = async (slug: string): Promise<Restaurant> => {
   });
 
   if (!restaurant) {
-    throw new Error("WTF");
+    throw new Error();
   }
 
   return restaurant;
@@ -51,11 +51,11 @@ export default async function RestaurantDetails({
   return (
     <>
       <div className="bg-white w-[70%] rounded p-3 shadow">
-        <RestaurantNavBar />
-        <Title />
+        <RestaurantNavBar slug={params.slug}/>
+        <Title name={restaurant.name}/>
         <Rating />
-        <Description />
-        <Images />
+        <Description description={restaurant.description}/>
+        <Images images={restaurant.images}/>
         <Reviews />
         </div>
       <div className="w-[27%] relative text-reg">
