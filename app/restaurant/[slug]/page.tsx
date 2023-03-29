@@ -31,9 +31,9 @@ const fetchRestaurantBySlug = async (slug: string): Promise<Restaurant> => {
     }
   });
 
-  // if (!restaurant) {
-  //   throw new Error("WTF");
-  // }
+  if (!restaurant) {
+    throw new Error("WTF");
+  }
 
   return restaurant;
 }
