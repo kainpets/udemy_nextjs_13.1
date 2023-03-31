@@ -1,5 +1,6 @@
 import { PRICE, Cuisine, Location } from "@prisma/client";
 import Link from "next/link";
+import Price from "../../components/Price";
 
 interface Restaurant  {
     id: number;
@@ -11,10 +12,6 @@ interface Restaurant  {
     slug: string;
 }
 
-function Price() {
-  
-}
-
 
 export default function RestaurantCard({restaurant}: {restaurant: Restaurant}) {
 
@@ -23,7 +20,7 @@ export default function RestaurantCard({restaurant}: {restaurant: Restaurant}) {
           <img
             src={restaurant.main_image}
             alt={`${restaurant.name}'s image`}
-            className="w-44 rounded"
+            className="w-44 h-36 rounded"
           />
           <div className="pl-5">
             <h2 className="text-3xl">{restaurant.name}</h2>
@@ -34,8 +31,8 @@ export default function RestaurantCard({restaurant}: {restaurant: Restaurant}) {
             <div className="mb-9">
               <div className="font-light flex text-reg">
                 <Price price={restaurant.price}/>
-                <p className="mr-4">{restaurant.cuisine.name}</p>
-                <p className="mr-4">{restaurant.location.name}</p>
+                <p className="mr-4 capitalize">{restaurant.cuisine.name}</p>
+                <p className="mr-4 capitalize">{restaurant.location.name}</p>
               </div>
             </div>
             <div className="text-red-600">
