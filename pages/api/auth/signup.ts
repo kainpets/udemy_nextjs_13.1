@@ -63,11 +63,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({errorMessage: "Email already in use"})
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcrypt.hash(password, 10);
 
+    const user = await prisma.user.create({
+      data: {
+        first_name: firstName,
+        last_name: lastName,
+        password: hashedPassword,
+        city,
+        phone,
+        email
+      }
+    })
 
     res.status(200).json({
-      hello: "there",
+      hello: user,
     });
   }
 }
